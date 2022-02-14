@@ -51,7 +51,8 @@ class YearsFragment : Fragment() {
 
         refresh()
 
-        //TODO: Set title to "Years"
+        // Set the title
+        binding.yearTitle.text = "Years"
 
         //Add year button ClickListener
         binding.addYearBTN.setOnClickListener{
