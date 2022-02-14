@@ -62,7 +62,8 @@ class YearFragment : Fragment() {
         //Refresh the grid view
         refresh()
 
-        // TODO: Set title to grade
+        // Set title depending on grade level
+        binding.levelTitle.text = if(year.grade.contains("U", true) || year.grade.contains("C", true)) year.grade else "G${year.grade}"
 
         //Clicklistener of the add button
         binding.addBTN.setOnClickListener {
