@@ -270,7 +270,7 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
     public final void deleteYear(@NotNull Year year) {
         SQLiteDatabase db = this.getWritableDatabase();
 
-        String whereClause = String.format("WHERE %s = %s", YEAR_ID, year.getId());
+        String whereClause = String.format("%s = %s", YEAR_ID, year.getId());
 
         // Delete all records belonging to this year
         db.delete(YEAR_TABLE, whereClause, null);
