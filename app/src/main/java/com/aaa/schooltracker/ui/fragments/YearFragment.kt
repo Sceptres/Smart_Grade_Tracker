@@ -74,6 +74,7 @@ class YearFragment : Fragment() {
         binding.subGrid.setOnItemClickListener { _, _, position, _ ->
             // TODO: Send to SubjectFragment with subject information
             val bundle = Bundle()
+            bundle.putParcelable(Constants.YEAR_KEY, year)
             bundle.putParcelable(Constants.SUBJECT_KEY, subjectArray[position])
 
             requireActivity().findNavController(R.id.nav_host_fragment).navigate(R.id.yearFragment_to_subjectFragment, bundle)

@@ -9,7 +9,7 @@
     tools:context=".ui.fragments.SubjectFragment">
 
     <TextView
-        android:id="@+id/subjectTitle"
+        android:id="@+id/subjectFragmentTitle"
         android:layout_width="match_parent"
         android:layout_height="76dp"
         android:background="@color/colorPrimary"
@@ -56,7 +56,7 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/textView5"
         app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/subjectTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/subjectFragmentTitle" />
 
     <TextView
         android:id="@+id/textView5"
@@ -103,7 +103,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/subjectTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/subjectFragmentTitle" />
 
     <TextView
         android:id="@+id/subSubjectView"

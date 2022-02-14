@@ -14,6 +14,7 @@ import com.aaa.schooltracker.ui.dialog.UpdatePopup
 import com.aaa.schooltracker.util.Constants
 import com.aaa.schooltracker.util.data.Grade
 import com.aaa.schooltracker.util.data.Subject
+import com.aaa.schooltracker.util.data.Year
 import java.text.DecimalFormat
 
 class SubjectFragment() : Fragment() {
@@ -27,6 +28,7 @@ class SubjectFragment() : Fragment() {
     private lateinit var gradeGridAdapter: GradeCustomGrid
 
     //Activity data
+    private lateinit var year: Year
     private lateinit var subject: Subject
 
     private var _binding: SubjectFragmentBinding? = null
@@ -35,6 +37,7 @@ class SubjectFragment() : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
+            year = it.getParcelable(Constants.YEAR_KEY)!!
             subject = it.getParcelable(Constants.SUBJECT_KEY)!!
         }
     }
@@ -52,7 +55,7 @@ class SubjectFragment() : Fragment() {
 
         //Display titles
         binding.subSubjectView.text = subject.name
-        binding.subjectTitle.text = "G$"
+        binding.subjectFragmentTitle.text = if(year.grade.contains("U", true) || year.grade.contains("C", true)) year.grade else "G${year.grade}"
 
         //Refresh the grid
         refresh()
