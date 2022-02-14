@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragments.YearFragment">
+
+    <TextView
+        android:id="@+id/yearTitle2"
+        android:layout_width="match_parent"
+        android:layout_height="76dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:textColor="@color/primaryTextColor"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/pink_CircleView"
+        android:layout_width="262dp"
+        android:layout_height="262dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/circle_btn"
+        android:contentDescription="@string/todo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/yearTitle2" />
+
+    <TextView
+        android:id="@+id/gradeView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/primaryTextColor"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toBottomOf="@+id/pink_CircleView"
+        app:layout_constraintEnd_toEndOf="@+id/pink_CircleView"
+        app:layout_constraintStart_toStartOf="@+id/pink_CircleView"
+        app:layout_constraintTop_toTopOf="@+id/pink_CircleView" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_BTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/tplaybtn"
+        android:textColor="#000000"
+        app:backgroundTint="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="@+id/subGrid"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:maxImageSize="30sp"
+        android:contentDescription="A button with a + sign indicating addition of new values" />
+
+    <GridView
+        android:id="@+id/subGrid"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pink_CircleView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

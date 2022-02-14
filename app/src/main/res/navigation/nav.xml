@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/home">
+    <fragment
+        android:id="@+id/home"
+        android:name="com.aaa.schooltracker.ui.fragments.YearsFragment"
+        android:label="@string/home"
+        tools:layout="@layout/years_fragment" >
+        <action
+            android:id="@+id/yearsFragment_to_yearFragment"
+            app:destination="@id/yearFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/yearFragment"
+        android:name="com.aaa.schooltracker.ui.fragments.YearFragment"
+        android:label="year_fragment"
+        tools:layout="@layout/year_fragment" >
+        <action
+            android:id="@+id/yearFragment_to_yearsFragment"
+            app:destination="@id/home" />
+        <action
+            android:id="@+id/yearFragment_to_subjectFragment"
+            app:destination="@id/subjectFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/subjectFragment"
+        android:name="com.aaa.schooltracker.ui.fragments.SubjectFragment"
+        android:label="subject_fragment"
+        tools:layout="@layout/subject_fragment">
+        <action
+            android:id="@+id/subjectFragment_to_yearFragment"
+            app:destination="@id/yearFragment" />
+    </fragment>
+</navigation>

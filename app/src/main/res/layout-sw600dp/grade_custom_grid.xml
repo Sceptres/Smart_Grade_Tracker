@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.customgrid.GradeCustomGrid">
+
+    <TextView
+        android:id="@+id/gradeNameTextView"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center_horizontal|fill_horizontal"
+        android:text="@string/subjects_name"
+        android:textColor="@color/secondaryTextColor"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Assignment" />
+
+    <TextView
+        android:id="@+id/gGradeText"
+        android:layout_width="wrap_content"
+        android:layout_height="43dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center|fill_horizontal"
+        android:text="@string/_100"
+        android:textColor="@color/secondaryTextColor"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/percentageTextView"
+        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintStart_toEndOf="@+id/gradeNameTextView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/percentageTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="43dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:gravity="center"
+        android:text="@string/_100"
+        android:textColor="@color/secondaryTextColor"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view8"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gradeNameTextView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
