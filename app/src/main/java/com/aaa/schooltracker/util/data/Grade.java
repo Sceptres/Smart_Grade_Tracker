@@ -5,6 +5,8 @@ import android.os.Parcelable;
 
 import androidx.annotation.Nullable;
 
+import com.aaa.schooltracker.util.Constants;
+
 /**
  * Contains all data of a single grade
  * @author Abdallah Alqashqish
@@ -167,7 +169,8 @@ public class Grade implements Parcelable {
      * @return Grade average percentage
      */
     public double getAverage() {
-        return this.average;
+        String roundedAvg = Constants.df.format(this.average);
+        return Double.parseDouble(roundedAvg);
     }
 
     /**

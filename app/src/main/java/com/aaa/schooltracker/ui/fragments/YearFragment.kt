@@ -146,7 +146,7 @@ class YearFragment : Fragment() {
 
         //Display the average
         binding.gradeView.text =
-            java.lang.String.format("%s%%", DecimalFormat("###.##").format(calculateTotalAverage()))
+            java.lang.String.format("%s%%", Constants.df.format(calculateTotalAverage()))
 
         //Display subjects
         binding.subGrid.adapter = mainAdapter

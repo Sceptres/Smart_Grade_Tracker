@@ -3,6 +3,8 @@ package com.aaa.schooltracker.util.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.aaa.schooltracker.util.Constants;
+
 /**
  * Contains all data of a subject
  * @author Abdallah Alqashqish
@@ -110,7 +112,8 @@ public class Subject implements Parcelable {
      * @return Subject average
      */
     public double getAverage() {
-        return this.average;
+        String roundedAvg = Constants.df.format(this.average);
+        return Double.parseDouble(roundedAvg);
     }
 
     /**

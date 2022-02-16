@@ -22,4 +22,7 @@ public class Constants {
     // Key data for AddGradePopup
     public static final String ADD_GRADE_KEY =          "ADDGRADE";
     public static final String GRADE_KEY =              "GRADE";
+
+    // Decimal Format to round data to 2 decimal places
+    public static final DecimalFormat df = new DecimalFormat("###.##");
 }
