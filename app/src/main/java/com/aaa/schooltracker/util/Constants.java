@@ -7,6 +7,8 @@
 
 package com.aaa.schooltracker.util;
 
+import java.text.DecimalFormat;
+
 public class Constants {
 
     // Key data for YearAddPopup Dialog
@@ -17,4 +19,7 @@ public class Constants {
     public static final String ADD_SUBJECT_KEY =        "ADDSUBJECT";
     public static final String SUBJECT_KEY =               "SUBJECT";
 
+    // Key data for AddGradePopup
+    public static final String ADD_GRADE_KEY =          "ADDGRADE";
+    public static final String GRADE_KEY =              "GRADE";
 }

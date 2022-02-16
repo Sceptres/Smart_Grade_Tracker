@@ -16,11 +16,12 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatDialogFragment
 import com.aaa.schooltracker.DatabaseHelper
 import com.aaa.schooltracker.R
+import com.aaa.schooltracker.util.Constants
+import com.aaa.schooltracker.util.data.Grade
+import com.aaa.schooltracker.util.data.Subject
 
 
-class AddGradePopup constructor(private val db: DatabaseHelper) : AppCompatDialogFragment() {
-
-    private var interfaces: AddGradeInterface? = null
+class AddGradePopup constructor(private val subject: Subject) : AppCompatDialogFragment() {
 
     //The onCreateDialog method
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -56,8 +57,15 @@ class AddGradePopup constructor(private val db: DatabaseHelper) : AppCompatDialo
                     val gradeName: String = gradeNameEditText.text.toString()
                     val grade: Double = gradeEditText.text.toString().toDouble()
                     val fullGrade: Double = fullGradeEditText.text.toString().toDouble()
-                    val percent = grade / fullGrade * 100
-                    interfaces?.addGrade(gradeName, grade, fullGrade, percent)
+
+                    this.activity?.apply {
+                        // Save new grade
+                        val bundle = Bundle()
+                        bundle.putParcelable(Constants.GRADE_KEY, Grade(subject.id, subject.yearId, gradeName, grade, fullGrade))
+
+                        // Send data to fragments
+                        supportFragmentManager.setFragmentResult(Constants.ADD_GRADE_KEY, bundle)
+                    }
 
                     //Dismiss the dialog
                     alertDialog.dismiss()
@@ -73,21 +81,4 @@ class AddGradePopup constructor(private val db: DatabaseHelper) : AppCompatDialo
 
         return alertDialog
     }
-
-    /**
-     * Name: onAttach
-     * Date: 2/11/2020
-     * Functionality: Sets up the interface using context
-     */
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-
-        interfaces = context as AddGradeInterface
-    }
-
-    //The interface
-    interface AddGradeInterface {
-        fun addGrade(GradeName: String?, Grade: Double?, fullGrade: Double?, Percent: Double?)
-    }
-
 }

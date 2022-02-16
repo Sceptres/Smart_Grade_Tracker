@@ -62,9 +62,7 @@ class SubjectFragment() : Fragment() {
 
         //Add grade button clicklistener
         binding.addGradeBTN.setOnClickListener {
-            AddGradePopup(db).apply {
-                show(requireActivity().supportFragmentManager, "Add Grade")
-            }
+            AddGradePopup(subject).show(requireActivity().supportFragmentManager, "Add Grade")
         }
 
         //Item clicklistener
@@ -86,6 +84,17 @@ class SubjectFragment() : Fragment() {
                 }
                 .setNegativeButton("Cancel", null).show()
             true
+        }
+
+        this.activity?.apply {
+            supportFragmentManager.setFragmentResultListener(Constants.ADD_GRADE_KEY, this) { _, grade ->
+
+                // Add to database
+                db.insertGrade(grade.getParcelable(Constants.GRADE_KEY)!!)
+
+                refresh()
+
+            }
         }
 
         return binding.root
