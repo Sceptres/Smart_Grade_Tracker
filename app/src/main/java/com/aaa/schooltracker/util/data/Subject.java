@@ -41,11 +41,7 @@ public class Subject implements Parcelable {
      * @param average Subject average
      */
     public Subject(int yearId, String name, double average) {
-        this.id = -1;
-        this.yearId = yearId;
-        this.name = name;
-        this.average = average;
-        this.setsChar();
+        this(-1, yearId, name, average);
     }
 
     /**
