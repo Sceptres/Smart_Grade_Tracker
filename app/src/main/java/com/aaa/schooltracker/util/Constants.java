@@ -19,8 +19,9 @@ public class Constants {
     public static final String ADD_SUBJECT_KEY =        "ADDSUBJECT";
     public static final String SUBJECT_KEY =               "SUBJECT";
 
-    // Key data for AddGradePopup
+    // Key data for Grades
     public static final String ADD_GRADE_KEY =          "ADDGRADE";
+    public static final String UPDATE_GRADE_KEY =       "UPDATEGRADE";
     public static final String GRADE_KEY =              "GRADE";
 
     // Decimal Format to round data to 2 decimal places

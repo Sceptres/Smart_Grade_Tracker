@@ -18,12 +18,11 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatDialogFragment
 import com.aaa.schooltracker.DatabaseHelper
 import com.aaa.schooltracker.R
+import com.aaa.schooltracker.util.Constants
 import com.aaa.schooltracker.util.data.Grade
 
 
-class UpdatePopup constructor(private val db: DatabaseHelper, private val grade: Grade) : AppCompatDialogFragment() {
-
-    private var interfaces: UpdateInterface? = null
+class UpdatePopup constructor(private val grade: Grade) : AppCompatDialogFragment() {
 
     //The onCreateDialog method
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -66,10 +65,20 @@ class UpdatePopup constructor(private val db: DatabaseHelper, private val grade:
                     val newGrade: Double = gradeEditText.text.toString().toDouble()
                     val newFullGrade: Double = fullGradeEditText.text.toString().toDouble()
 
-                    val grade: Grade = Grade(newGradeName, newGrade, newFullGrade)
+                    this.activity?.supportFragmentManager?.apply {
+                        // Update the grade
+                        grade.apply {
+                            name = newGradeName
+                            grade = newGrade
+                            maxGrade = newFullGrade;
+                        }
 
-                    //Update the grade
-                    interfaces?.update(grade)
+                        val bundle = Bundle()
+                        bundle.putParcelable(Constants.GRADE_KEY, grade)
+
+                        // Send updated grade to fragment
+                        setFragmentResult(Constants.UPDATE_GRADE_KEY, bundle)
+                    }
 
                     //Dismiss the dialog
                     alertDialog.dismiss()
@@ -85,22 +94,4 @@ class UpdatePopup constructor(private val db: DatabaseHelper, private val grade:
 
         return alertDialog
     }
-
-    /**
-     * Name: onAttach
-     * Date: 3/11/2020
-     * Functionality: Sets up the interface
-     * @param context: The context
-     */
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-
-        interfaces = context as UpdateInterface
-    }
-
-    //The interface
-    interface UpdateInterface {
-        fun update(grade: Grade)
-    }
-
 }

@@ -67,9 +67,7 @@ class SubjectFragment() : Fragment() {
 
         //Item clicklistener
         binding.gradeGrid.setOnItemClickListener { _, _, position, _ ->
-            UpdatePopup(db, gradeArray[position]).apply {
-                show(requireActivity().supportFragmentManager, "Update")
-            }
+            UpdatePopup(gradeArray[position]).show(requireActivity().supportFragmentManager, "Update")
         }
 
         //Longitemclicklistener for grades
@@ -86,6 +84,7 @@ class SubjectFragment() : Fragment() {
             true
         }
 
+        // Adding a new grade
         this.activity?.apply {
             supportFragmentManager.setFragmentResultListener(Constants.ADD_GRADE_KEY, this) { _, grade ->
 
@@ -94,6 +93,17 @@ class SubjectFragment() : Fragment() {
 
                 refresh()
 
+            }
+        }
+
+        // Updating a grade
+        this.activity?.apply {
+            supportFragmentManager.setFragmentResultListener(Constants.UPDATE_GRADE_KEY, this) { _, grade ->
+
+                // Update the grade record in the database
+                db.updateGrade(grade.getParcelable(Constants.GRADE_KEY)!!)
+
+                refresh()
             }
         }
 
