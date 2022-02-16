@@ -48,14 +48,8 @@ public class Grade implements Parcelable {
      * @param grade Achieved grade
      * @param maxGrade Maximum achievable grade
      */
-    public Grade(String name, double grade, double maxGrade) {
-        this.id = -1;
-        this.subjectId = -1;
-        this.yearId = -1;
-        this.name = name;
-        this.grade = grade;
-        this.maxGrade = maxGrade;
-        this.setAverage();
+    public Grade(Integer subjectId, Integer yearId, String name, double grade, double maxGrade) {
+       this(-1, subjectId, yearId, name, grade, maxGrade);
     }
 
     /**
