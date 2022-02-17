@@ -34,4 +34,9 @@
             android:id="@+id/subjectFragment_to_yearFragment"
             app:destination="@id/yearFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/calendar"
+        android:name="com.aaa.schooltracker.ui.fragments.EventFragment"
+        android:label="event_fragment"
+        tools:layout="@layout/event_fragment" />
 </navigation>

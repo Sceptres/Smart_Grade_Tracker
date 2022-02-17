@@ -1,7 +1,5 @@
 package com.aaa.schooltracker.ui.fragments
 
-import android.content.Intent
-import android.database.Cursor
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,16 +8,11 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.aaa.schooltracker.DatabaseHelper
 import com.aaa.schooltracker.databinding.EventFragmentBinding
-import com.aaa.schooltracker.ui.activity.FeedbackActivity
 import com.aaa.schooltracker.ui.customgrid.EventCustomGrid
 import com.aaa.schooltracker.ui.dialog.EventAddPopup
 import com.aaa.schooltracker.util.data.event.Event
-import com.aaa.schooltracker.util.data.event.EventType
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.MobileAds
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.ArrayList
 
 class EventFragment : Fragment() {
 
@@ -29,7 +22,7 @@ class EventFragment : Fragment() {
     private val eventArray: ArrayList<Event> = ArrayList()
 
     //Event grid adapter
-    private val eventGridAdapter: EventCustomGrid = EventCustomGrid(requireContext(), eventArray)
+    private lateinit var eventGridAdapter: EventCustomGrid
 
 
     private var _binding: EventFragmentBinding? = null
@@ -44,6 +37,7 @@ class EventFragment : Fragment() {
         _binding = EventFragmentBinding.inflate(inflater, container, false)
 
         this.db = DatabaseHelper(requireContext())
+        this.eventGridAdapter = EventCustomGrid(requireContext(), eventArray)
 
         //Refresh the activity
         refresh()
