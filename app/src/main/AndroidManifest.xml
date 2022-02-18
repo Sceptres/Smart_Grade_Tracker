@@ -22,12 +22,7 @@
         android:allowBackup="true"
         android:fullBackupOnly="true"
         tools:targetApi="lollipop">
-        <activity android:name=".ui.activity.FeedbackActivity" />
         <activity android:name=".ui.activity.MainActivity" />
-
-        <meta-data
-            android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-1417462071241776~3400306655" />
 
         <activity android:name=".ui.activity.LoadActivity"
             android:exported="true">
