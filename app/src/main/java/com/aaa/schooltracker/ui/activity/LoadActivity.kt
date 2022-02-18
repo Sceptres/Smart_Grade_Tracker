@@ -10,6 +10,7 @@ package com.aaa.schooltracker.ui.activity
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import com.aaa.schooltracker.R
 
@@ -20,7 +21,7 @@ class LoadActivity : AppCompatActivity() {
         setContentView(R.layout.activity_load_page)
 
         //Delay
-        Handler().postDelayed({
+        Handler(Looper.myLooper()!!).postDelayed({
             startActivity(Intent(this@LoadActivity, MainActivity::class.java))
             finish()
         }, 4000)
