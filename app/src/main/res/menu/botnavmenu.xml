@@ -9,8 +9,9 @@
         android:id="@+id/calendar"
         android:title="@string/calendar"
         android:icon="@drawable/calendar"/>
+    <!-- For future release
     <item
         android:id="@+id/settings"
         android:title="@string/settings"
-        android:icon="@drawable/settings"/>
+        android:icon="@drawable/settings"/>-->
 </menu>
