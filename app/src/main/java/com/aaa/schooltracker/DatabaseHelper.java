@@ -621,7 +621,7 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
                             dbEvents.getString(1),                      // Day of the month
                             dbEvents.getString(2),                      // Month of the year 1-12
                             dbEvents.getString(3),                      // Event subject name
-                            EventType.valueOf(dbEvents.getString(4)),   // Event type
+                            EventType.getEnum(dbEvents.getString(4)),   // Event type
                             dbEvents.getInt(5)                          // Event status
                     )
             );
