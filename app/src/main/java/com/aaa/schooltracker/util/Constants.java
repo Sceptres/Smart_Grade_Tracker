@@ -24,6 +24,10 @@ public class Constants {
     public static final String UPDATE_GRADE_KEY =       "UPDATEGRADE";
     public static final String GRADE_KEY =              "GRADE";
 
+    // KEy data for Events
+    public static final String ADD_EVENT_KEY =          "ADDEVENT";
+    public static final String EVENT_KEY =              "EVENT";
+
     // Decimal Format to round data to 2 decimal places
     public static final DecimalFormat df = new DecimalFormat("###.##");
 }

@@ -10,6 +10,7 @@ import com.aaa.schooltracker.DatabaseHelper
 import com.aaa.schooltracker.databinding.EventFragmentBinding
 import com.aaa.schooltracker.ui.customgrid.EventCustomGrid
 import com.aaa.schooltracker.ui.dialog.EventAddPopup
+import com.aaa.schooltracker.util.Constants
 import com.aaa.schooltracker.util.data.event.Event
 import java.text.SimpleDateFormat
 import java.util.*
@@ -47,9 +48,7 @@ class EventFragment : Fragment() {
 
         //Add event button click listener
         binding.evAddEvent.setOnClickListener {
-            EventAddPopup().apply {
-                show(requireActivity().supportFragmentManager, "Add Event")
-            }
+            EventAddPopup().show(requireActivity().supportFragmentManager, "Add Event")
         }
 
         //Clear events button clicklistener
@@ -72,6 +71,15 @@ class EventFragment : Fragment() {
             true
         }
 
+        this.activity?.apply {
+            supportFragmentManager.setFragmentResultListener(Constants.ADD_EVENT_KEY, this) {_, event ->
+
+                // Add the grade to the database
+                db.insertEvent(event.getParcelable(Constants.EVENT_KEY)!!)
+
+                refresh()
+            }
+        }
 
         return binding.root
     }

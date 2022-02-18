@@ -16,13 +16,15 @@ import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AppCompatDialogFragment
 import com.aaa.schooltracker.R
+import com.aaa.schooltracker.util.Constants
+import com.aaa.schooltracker.util.data.event.Event
+import com.aaa.schooltracker.util.data.event.EventType
 import java.util.*
 import kotlin.collections.ArrayList
 
 
 class EventAddPopup : AppCompatDialogFragment() {
 
-    private var interfaces: AddEventInterface? = null
     private var selectedDate: ArrayList<Int> = getCurrentDate()
 
 
@@ -67,7 +69,7 @@ class EventAddPopup : AppCompatDialogFragment() {
         alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
             //Get the info from the user
             val subjectName = subjectEditText.text.toString()
-            val type = typeSpinner.selectedItem.toString()
+            val type = EventType.getEnum(typeSpinner.selectedItem.toString())
 
             val today = Calendar.getInstance().apply {
                 val day = getCurrentDate()
@@ -92,28 +94,19 @@ class EventAddPopup : AppCompatDialogFragment() {
                     Toast.makeText(context, "You can only add events for the future.", Toast.LENGTH_LONG).show();
 
                 else -> {
-                    //Send the event
-                    interfaces?.sendEventInfo(selectedDate[0].toString(), selectedDate[1].toString(), subjectName, type)
+                    this.activity?.apply {
+                        val bundle = Bundle()
+                        val event = Event(selectedDate[0].toString(), selectedDate[1].toString(), subjectName, type, 0)
+                        bundle.putParcelable(Constants.EVENT_KEY, event)
+
+                        // Send the event to the fragment
+                        supportFragmentManager.setFragmentResult(Constants.ADD_EVENT_KEY, bundle)
+                    }
 
                     //Dismiss the dialog
                     alertDialog.dismiss()
                 }
             }
-
-            /*//Did the user not insert a subject
-            if(subjectEditText.text.isEmpty())
-                Toast.makeText(context, "Can not have an empty field.", Toast.LENGTH_LONG).show();
-            //Is the day in the past
-            else if(selectDate.before(today) || isDateEquals(today, selectDate))
-                Toast.makeText(context, "You can only add events for the future.", Toast.LENGTH_LONG).show();
-            //Otherwise send the users input
-            else{
-                //Send the event
-                interfaces?.sendEventInfo(selectedDate[0].toString(), selectedDate[1].toString(), subjectName, type)
-
-                //Dismiss the dialog
-                alertDialog.dismiss()
-            }*/
         }
 
         return alertDialog
@@ -179,21 +172,4 @@ class EventAddPopup : AppCompatDialogFragment() {
                d1.get(Calendar.MONTH) == d2.get(Calendar.MONTH) &&
                d1.get(Calendar.YEAR) == d2.get(Calendar.YEAR)
     }
-
-    /**
-     * Name: onAttach
-     * Date: 2/11/2020
-     * Functionality: Sets up the interface
-     */
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-
-        interfaces = context as AddEventInterface
-    }
-
-    //The interface
-    interface AddEventInterface {
-        fun sendEventInfo(day: String?, month: String?, subjectName: String?, type: String?)
-    }
-
 }
