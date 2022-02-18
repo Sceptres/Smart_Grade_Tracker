@@ -113,7 +113,7 @@ class YearsFragment : Fragment() {
      */
     private fun refresh() {
         years.clear()
-        years.addAll(db.getYears())
+        years.addAll(db.years)
         binding.yearGridView.adapter = gridAdapter
     }
 }

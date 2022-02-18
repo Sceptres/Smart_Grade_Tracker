@@ -17,7 +17,7 @@ import com.aaa.schooltracker.util.data.Subject
 import com.aaa.schooltracker.util.data.Year
 import java.text.DecimalFormat
 
-class SubjectFragment() : Fragment() {
+class SubjectFragment : Fragment() {
 
     lateinit var db: DatabaseHelper
 

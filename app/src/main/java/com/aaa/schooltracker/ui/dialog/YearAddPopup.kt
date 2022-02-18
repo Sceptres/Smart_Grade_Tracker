@@ -109,7 +109,7 @@ class YearAddPopup constructor(private val db: DatabaseHelper) : AppCompatDialog
      * Gets the data from te database so we can check if the year exists
      */
     private fun refresh() {
-        years.addAll(db.getYears())
+        years.addAll(db.years)
    }
 
     override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {

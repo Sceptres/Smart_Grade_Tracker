@@ -70,7 +70,7 @@ class UpdatePopup constructor(private val grade: Grade) : AppCompatDialogFragmen
                         grade.apply {
                             name = newGradeName
                             grade = newGrade
-                            maxGrade = newFullGrade;
+                            maxGrade = newFullGrade
                         }
 
                         val bundle = Bundle()

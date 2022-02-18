@@ -98,7 +98,7 @@ class EventFragment : Fragment() {
     private fun refresh() {
         eventArray.clear()
 
-        eventArray.addAll(db.getEvents())
+        eventArray.addAll(db.events)
 
         binding.eventGridView.adapter = eventGridAdapter
     }

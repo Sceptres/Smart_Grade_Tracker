@@ -49,7 +49,7 @@ class AddSubjectPopup constructor(private val db: DatabaseHelper, private val ye
         alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
             //Format the user input   math --> Math
             val subjectsName: String = subjectNameET.text.toString()
-            val firstLetter: Char = subjectsName[0].toUpperCase()
+            val firstLetter: Char = subjectsName[0].uppercaseChar()
             val subjectName = StringBuilder()
             subjectName.append(firstLetter)
             subjectName.append(subjectsName.substring(1))

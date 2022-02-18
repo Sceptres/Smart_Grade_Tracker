@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.util.Log;
 
 import com.aaa.schooltracker.util.data.Grade;
@@ -13,17 +12,15 @@ import com.aaa.schooltracker.util.data.Subject;
 import com.aaa.schooltracker.util.data.Year;
 import com.aaa.schooltracker.util.data.event.Event;
 import com.aaa.schooltracker.util.data.event.EventType;
-import java.util.ArrayList;
-import java.util.Locale;
 
-import kotlin.Metadata;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
+
 /**
  * Controls and maintains the sql database
+ *
  * @author Abdallah Alqashqish
  * @version v3.1
  */
@@ -66,7 +63,6 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COL_5E = "isDone";
 
     /**
-     *
      * @param context The context of the activity
      */
     public DatabaseHelper(@Nullable Context context) {
@@ -207,10 +203,10 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
      */
 
     /**
-     *
      * Insert a year into the database
-     * @since v3.1
+     *
      * @param year The year to insert into the database
+     * @since v3.1
      */
     public final void insertYear(@NotNull Year year) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -227,10 +223,10 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     /**
-     *
      * Get all the years in the database
-     * @since v3.1
+     *
      * @return An ArrayList with all the Years in the database
+     * @since v3.1
      */
     @NotNull
     public final ArrayList<Year> getYears() {
@@ -244,7 +240,7 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         ArrayList<Year> years = new ArrayList<Year>();
 
         // Save the retrieved Year records
-        while(res.moveToNext()) {
+        while (res.moveToNext()) {
             years.add(
                     new Year(
                             res.getInt(0),      // Database ID for this Year record
@@ -262,10 +258,10 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     /**
-     *
      * Delete a year from the database
-     * @since v3.1
+     *
      * @param year The year to delete from the database
+     * @since v3.1
      */
     public final void deleteYear(@NotNull Year year) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -287,10 +283,10 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
      */
 
     /**
-     *
      * Inserts a new subject into the database
-     * @since v3.1
+     *
      * @param subject The subject to insert into the database
+     * @since v3.1
      */
     public final void insertSubject(@NotNull Subject subject) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -304,11 +300,11 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     /**
-     *
      * Gets all subjects corresponding to inputted year
-     * @since v3.1
+     *
      * @param year The year corresponding to the subjects
      * @return An ArrayList with all the subjects
+     * @since v3.1
      */
     @NotNull
     public final ArrayList<Subject> getSubjects(@NotNull Year year) {
@@ -328,7 +324,7 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
          */
         String query = String.format(
                 "SELECT %s, (SELECT SUM(%s) FROM %s WHERE %s=%s), (SELECT SUM(%s) FROM %s WHERE %s=%s) " +
-                "FROM %s WHERE %s=%s GROUP BY %s ORDER BY %s",
+                        "FROM %s WHERE %s=%s GROUP BY %s ORDER BY %s",
                 "*",                                                        // *
                 COL_2G,                                                     // Grade
                 GRADES_TABLE,                                               // Grades_Table
@@ -351,7 +347,7 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         ArrayList<Subject> subjectArray = new ArrayList<Subject>();
 
         // Save the retrieved Subject records
-        while(subjectData.moveToNext()) {
+        while (subjectData.moveToNext()) {
             // Calculate subject average
             double achievedGrade = subjectData.getDouble(3);
             double maxAchievableGrade = subjectData.getDouble(4);
@@ -373,11 +369,11 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     /**
-     *
      * Get all names of subjects corresponding to the inputted year
-     * @since v3.1
+     *
      * @param year The year the user is currently browsing
      * @return An arraylist with all the subject names corresponding to the inputted year
+     * @since v3.1
      */
     @NotNull
     public final ArrayList<String> getSubjectNames(@NotNull Year year) {
@@ -397,7 +393,7 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         ArrayList<String> subjectNamesArr = new ArrayList<String>();
 
         // Save all subject names
-        while(subjectNames.moveToNext()) {
+        while (subjectNames.moveToNext()) {
             subjectNamesArr.add(subjectNames.getString(0));
         }
 
@@ -407,10 +403,10 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     /**
-     *
      * Deletes a specific subject from the database
-     * @since v3.1
+     *
      * @param subject The subject to delete
+     * @since v3.1
      */
     public final void deleteSubject(@NotNull Subject subject) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -429,10 +425,10 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
      */
 
     /**
-     *
      * Inserts a new grade into the database
-     * @since v3.1
+     *
      * @param grade The grade to insert into the database
+     * @since v3.1
      */
     public final void insertGrade(@NotNull Grade grade) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -450,10 +446,10 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     /**
-     *
      * Updates a specific grade
-     * @since v3.1
+     *
      * @param grade The grade to update
+     * @since v3.1
      */
     public final void updateGrade(@NotNull Grade grade) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -485,11 +481,11 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     /**
-     *
      * Gets the all the grades corresponding to a specific subject
-     * @since v3.1
+     *
      * @param subject The subject of the grades
      * @return An ArrayList of grades corresponding to the subject
+     * @since v3.1
      */
     @NotNull
     public final ArrayList<Grade> getGrades(@NotNull Subject subject) {
@@ -515,7 +511,7 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         ArrayList<Grade> grades = new ArrayList<Grade>();
 
         // Save all the retrieved Grade records
-        while(gradesCursor.moveToNext()) {
+        while (gradesCursor.moveToNext()) {
             grades.add(
                     new Grade(
                             gradesCursor.getInt(0),     // Grade database ID
@@ -534,10 +530,10 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     /**
-     *
      * Delete a grade from the database
-     * @since v3.1
+     *
      * @param grade The grade to delete from the database
+     * @since v3.1
      */
     public final void deleteGrade(@NotNull Grade grade) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -556,10 +552,10 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
      */
 
     /**
-     *
      * Inserts an event into the database
-     * @since v3.1
+     *
      * @param event The event to insert into the database
+     * @since v3.1
      */
     public final void insertEvent(@NotNull Event event) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -576,10 +572,10 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     /**
-     *
      * Updates an event in the database
-     * @since v3.1
+     *
      * @param event The event with new data to update
+     * @since v3.1
      */
     public final void updateEvent(@NotNull Event event) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -598,10 +594,10 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     /**
-     *
      * Gets all the events from the database
-     * @since v3.1
+     *
      * @return An ArrayList with all the events in the database
+     * @since v3.1
      */
     @NotNull
     public final ArrayList<Event> getEvents() {
@@ -610,11 +606,11 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         String query = String.format("SELECT * FROM %s", EVENT_TABLE);
 
         // Get event records
-        Cursor dbEvents = db.rawQuery(query,null);
+        Cursor dbEvents = db.rawQuery(query, null);
 
         ArrayList<Event> events = new ArrayList<Event>();
 
-        while(dbEvents.moveToNext()) {
+        while (dbEvents.moveToNext()) {
             events.add(
                     new Event(
                             dbEvents.getInt(0),                         // Event database ID
@@ -634,8 +630,9 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
 
     /**
      * Deletes an event from the database
-     * @since v3.1
+     *
      * @param event The event to delete from the database
+     * @since v3.1
      */
     public final void deleteEvent(@NotNull Event event) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -646,8 +643,8 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     /**
-     *
      * Deletes all events in the database
+     *
      * @since v3.1
      */
     public final void clearEvents() {

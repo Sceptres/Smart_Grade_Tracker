@@ -88,10 +88,10 @@ class EventAddPopup : AppCompatDialogFragment() {
             Log.d("Selected", selectDate.toString())
 
             when{
-                subjectEditText.text.isEmpty() -> Toast.makeText(context, "Can not have an empty field.", Toast.LENGTH_LONG).show();
+                subjectEditText.text.isEmpty() -> Toast.makeText(context, "Can not have an empty field.", Toast.LENGTH_LONG).show()
 
                 selectDate.before(today) || isDateEquals(today, selectDate) ->
-                    Toast.makeText(context, "You can only add events for the future.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, "You can only add events for the future.", Toast.LENGTH_LONG).show()
 
                 else -> {
                     this.activity?.apply {
