@@ -1,10 +1,3 @@
-/**
- * Name: yearCustomGrid.kt
- * Date: 3/11/2020
- * @author: Abdallah Alqashqish
- * Functionality: Controls the year custom grid
- */
-
 package com.aaa.schooltracker.ui.customgrid
 
 import com.aaa.schooltracker.R
@@ -16,7 +9,12 @@ import android.widget.BaseAdapter
 import android.widget.TextView
 import com.aaa.schooltracker.util.data.Year
 
-
+/**
+ * A custom grid to display years to the user
+ *
+ * @author Abdallah Alqashqish
+ * @version v3.1
+ */
 class YearCustomGrid constructor(
     private val context: Context,
     private val years: ArrayList<Year>,
@@ -34,7 +32,6 @@ class YearCustomGrid constructor(
         return 0
     }
 
-    //The getView method
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         //Set up the layoutInflater
         val layoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -48,13 +45,14 @@ class YearCustomGrid constructor(
         val gradeTextView: TextView = view.findViewById(R.id.GRADETEXTVIEW)
         val timeTextView: TextView = view.findViewById(R.id.timeTextView)
 
+        val year: Year = years[position]
+
         //Display the year data to the user
-        schoolNameTextView.text = years[position].schoolName
-        gradeTextView.text = years[position].grade
-        val beginString: String = years[position].begin.toString()
-        val endString: String = years[position].end.toString()
-        val fullTimeString = "$beginString-$endString"
-        timeTextView.text = fullTimeString
+        schoolNameTextView.text = year.schoolName
+        gradeTextView.text = year.grade
+        val beginString: String = year.begin.toString()
+        val endString: String = year.end.toString()
+        timeTextView.text = "$beginString-$endString"
 
         return view
     }

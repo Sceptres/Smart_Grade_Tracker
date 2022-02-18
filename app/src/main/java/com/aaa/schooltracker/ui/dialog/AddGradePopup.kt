@@ -1,10 +1,3 @@
-/**
- * Name: AddGradePopup.kt
- * Date: 2/11/2020
- * @author: Abdallah Alqashqish
- * Functionality: Controls the grade add popup
- */
-
 package com.aaa.schooltracker.ui.dialog
 
 import android.app.AlertDialog
@@ -20,10 +13,14 @@ import com.aaa.schooltracker.util.Constants
 import com.aaa.schooltracker.util.data.Grade
 import com.aaa.schooltracker.util.data.Subject
 
-
+/**
+ * A dialog used to add new grades to a specific subject
+ *
+ * @author Abdallah Alqashqish
+ * @version v3.1
+ */
 class AddGradePopup constructor(private val subject: Subject) : AppCompatDialogFragment() {
 
-    //The onCreateDialog method
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val mBuilder = AlertDialog.Builder(context)
         val inflater = activity?.layoutInflater
@@ -75,7 +72,7 @@ class AddGradePopup constructor(private val subject: Subject) : AppCompatDialogF
                 if (gradeEditText.text.isEmpty() || fullGradeEditText.text.isEmpty())
                     Toast.makeText(context, "Can not have an empty field", Toast.LENGTH_LONG).show()
                 else
-                    Toast.makeText(context, "Can not have Letters for a grade", Toast.LENGTH_LONG).show()
+                    Toast.makeText(context, "Can not have letters for a mark", Toast.LENGTH_LONG).show()
             }
         }
 

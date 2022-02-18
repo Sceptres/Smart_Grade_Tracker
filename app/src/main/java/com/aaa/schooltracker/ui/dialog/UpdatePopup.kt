@@ -21,10 +21,14 @@ import com.aaa.schooltracker.R
 import com.aaa.schooltracker.util.Constants
 import com.aaa.schooltracker.util.data.Grade
 
-
+/**
+ * A dialog to update an already existing grade entry
+ *
+ * @author Abdallah Alqashqish
+ * @version v3.1
+ */
 class UpdatePopup constructor(private val grade: Grade) : AppCompatDialogFragment() {
 
-    //The onCreateDialog method
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val mBuilder = AlertDialog.Builder(context)
         val inflater = activity?.layoutInflater

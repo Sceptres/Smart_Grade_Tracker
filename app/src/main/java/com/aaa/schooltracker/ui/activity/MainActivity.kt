@@ -1,10 +1,3 @@
-/**
- * Name: MainActivity.kt
- * Date: 30/10/2021
- * @author: Abdallah Alqashqish
- * The main activity of the application
- */
-
 package com.aaa.schooltracker.ui.activity
 
 import android.os.Bundle
@@ -14,6 +7,13 @@ import androidx.navigation.ui.setupWithNavController
 import com.aaa.schooltracker.R
 import com.aaa.schooltracker.databinding.ActivityMainBinding
 
+/**
+ * The main activity of the application with the nav controller
+ * and the bottom navigation
+ *
+ * @author Abdallah Alqashqish
+ * @version v3.1
+ */
 class MainActivity : AppCompatActivity() {
 
     private var _binding: ActivityMainBinding? = null

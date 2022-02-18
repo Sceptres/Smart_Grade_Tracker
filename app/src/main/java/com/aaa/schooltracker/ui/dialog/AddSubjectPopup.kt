@@ -16,7 +16,9 @@ import com.aaa.schooltracker.util.data.Year
 
 /**
  * A dialog used to add a new subject
+ *
  * @author Abdallah Alqashqish
+ * @version v3.1
  */
 class AddSubjectPopup constructor(private val db: DatabaseHelper, private val year: Year) : AppCompatDialogFragment() {
 
@@ -42,7 +44,7 @@ class AddSubjectPopup constructor(private val db: DatabaseHelper, private val ye
             show()
         }
 
-        //Get the existing subjects
+        //Get the existing subjects names
         refresh()
 
         //ClickListener for the alert dialog positive button

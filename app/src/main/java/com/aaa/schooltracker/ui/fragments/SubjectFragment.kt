@@ -17,6 +17,13 @@ import com.aaa.schooltracker.util.data.Subject
 import com.aaa.schooltracker.util.data.Year
 import java.text.DecimalFormat
 
+/**
+ * The fragment that displays the grades of a subject for a specific year. Accessed by pressing one of the subjects in the
+ * subject fragment
+ *
+ * @author Abdallah Alqashqish
+ * @version v3.1
+ */
 class SubjectFragment : Fragment() {
 
     lateinit var db: DatabaseHelper
@@ -120,9 +127,6 @@ class SubjectFragment : Fragment() {
     }
 
     /**
-     * Name: getSubjectAverage
-     * Date: 5/11/2020
-     * Functionality: Gets the average for the subject
      * @return The average of the subject as a string
      */
     private fun getSubjectAverage(): String {
@@ -155,17 +159,4 @@ class SubjectFragment : Fragment() {
 
         binding.gradeGrid.adapter = gradeGridAdapter
     }
-
-    //Insert the grade to the database and refresh the gradeGrid
-//    override fun addGrade(GradeName: String?, Grade: Double, fullGrade: Double) {
-//        db.insertGrade(Grade(null, null, null, GradeName, Grade, fullGrade))
-//        refresh()
-//    }
-
-    //Upgrade the grade in the database
-//    override fun update(grade: Grade) {
-//        db.updateGrade(grade)
-//        refresh()
-//    }
-
 }

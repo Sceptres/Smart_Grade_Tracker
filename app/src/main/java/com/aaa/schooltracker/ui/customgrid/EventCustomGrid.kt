@@ -1,10 +1,3 @@
-/**
- * Name: EventCustomGrid.kt
- * Date: 7/11/2020
- * @author: Abdallah Alqashqish
- * Functionality: Controls the event grid
- */
-
 package com.aaa.schooltracker.ui.customgrid
 
 import com.aaa.schooltracker.R
@@ -18,6 +11,12 @@ import com.aaa.schooltracker.util.data.event.Event
 import java.lang.String.format
 
 
+/**
+ * A custom grid view to display events to the user
+ *
+ * @author Abdallah Alqashqish
+ * @version v3.1
+ */
 class EventCustomGrid constructor(private val c: Context,
                                   private val eventArray: ArrayList<Event>) : BaseAdapter() {
     override fun getCount(): Int {
@@ -32,7 +31,6 @@ class EventCustomGrid constructor(private val c: Context,
         return 0
     }
 
-    //The getView method
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         //Set up the layout inflater
         val inflater = c.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -67,11 +65,8 @@ class EventCustomGrid constructor(private val c: Context,
             "12" -> monthView.text = "December"
         }
 
-        //Is the event upcoming
-        if (event.status == 0)
-            doneView.text = "Upcoming"
-        else if (event.status == 1) //Is the event over
-            doneView.text = "Completed"
+        //Display event status
+        doneView.text = if (event.status == 0) "Upcoming" else "Completed"
 
         //Sets the assignmentView to subjectName + type
         assignmentView.text = format("%s %s", event.subject, event.type)

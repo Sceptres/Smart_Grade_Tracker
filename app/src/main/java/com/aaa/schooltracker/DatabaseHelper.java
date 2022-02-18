@@ -69,6 +69,11 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
+    /**
+     * Creates the tables in the database
+     *
+     * @param db The instance of the database
+     */
     @Override
     public void onCreate(@NotNull SQLiteDatabase db) {
         // Create years table
@@ -125,6 +130,13 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         );
     }
 
+    /**
+     * Data migration from database v1 to v3
+     *
+     * @param db The database instance
+     * @param oldVersion The old database version
+     * @param newVersion The new database version
+     */
     @Override
     public void onUpgrade(@NotNull SQLiteDatabase db, int oldVersion, int newVersion) {
         // Upgrade database from v1 to v3
@@ -196,11 +208,9 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    /*The functions that get, add and delete information from the YearTable
-     * insertYear()
-     * getYears()
-     * deleteYear()
-     */
+    /**********************************************
+     **************YEAR TABLE METHODS**************
+     **********************************************/
 
     /**
      * Insert a year into the database
@@ -274,13 +284,9 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         db.delete(GRADES_TABLE, whereClause, null);
     }
 
-    /*
-     * The functions that get, add and delete information from the Subject_Table
-     * insertSubject()
-     * getSubjects()
-     * getSubjectNames()
-     * deleteSubject()
-     */
+    /**********************************************
+     ************SUBJECT TABLE METHODS*************
+     **********************************************/
 
     /**
      * Inserts a new subject into the database
@@ -417,12 +423,9 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         db.delete(GRADES_TABLE, whereClause, null);
     }
 
-    /*
-     * The functions that get, add and delete information from the Grades_Table
-     * insertGrade()
-     * updateGrade()
-     * getGrades()
-     */
+    /**********************************************
+     **************Grade TABLE METHODS*************
+     **********************************************/
 
     /**
      * Inserts a new grade into the database
@@ -543,13 +546,9 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         db.delete(GRADES_TABLE, whereClause, null);
     }
 
-    /*The functions that get, add and delete information from the DateTable
-     * insertEvent()
-     * updateEvent()
-     * getEvent()
-     * deleteEvent()
-     * clearEvents()
-     */
+    /**********************************************
+     **************EVENT TABLE METHODS**************
+     **********************************************/
 
     /**
      * Inserts an event into the database

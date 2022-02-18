@@ -1,10 +1,3 @@
-/**
- * Name: GradeCustomGrid.kt
- * Date: 5/11/2020
- * @author: Abdallah Alqashqish
- * Functionality: Controls the grade custom grid
- */
-
 package com.aaa.schooltracker.ui.customgrid
 
 import com.aaa.schooltracker.R
@@ -16,7 +9,12 @@ import android.widget.BaseAdapter
 import android.widget.TextView
 import com.aaa.schooltracker.util.data.Grade
 
-
+/**
+ * A custom grid view to display grades to the user
+ *
+ * @author Abdallah Alqashqish
+ * @version v3.1
+ */
 class GradeCustomGrid constructor(private val c: Context,
                                   private val gradeArray: ArrayList<Grade>) : BaseAdapter() {
     override fun getCount(): Int {
@@ -31,7 +29,6 @@ class GradeCustomGrid constructor(private val c: Context,
         return 0
     }
 
-    //The getView method
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         //Set up the inflater
         val inflater = c.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -50,8 +47,7 @@ class GradeCustomGrid constructor(private val c: Context,
         //Display the info to the user
         gradeNameTextView.text = grade.name
         fullGradeTextView.text = "${grade.grade}/${grade.maxGrade}"
-        val fullPercentageText: String = grade.average.toString() + "%"
-        percentageTextView.text = fullPercentageText
+        percentageTextView.text = grade.average.toString() + "%"
 
         return view
     }

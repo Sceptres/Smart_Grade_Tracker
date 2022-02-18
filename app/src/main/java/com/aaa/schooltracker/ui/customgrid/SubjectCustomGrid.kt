@@ -1,10 +1,3 @@
-/**
- * Name: SubjectCustomGrid.kt
- * Date: 4/11/2020
- * @author: Abdallah Alqashqish
- * Functionality: Controls the Subject grid
- */
-
 package com.aaa.schooltracker.ui.customgrid
 
 import com.aaa.schooltracker.R
@@ -16,7 +9,12 @@ import android.widget.BaseAdapter
 import android.widget.TextView
 import com.aaa.schooltracker.util.data.Subject
 
-
+/**
+ * A custom grid view to display subjects to the user
+ *
+ * @author Abdallah Alqashqish
+ * @version 3.1
+ */
 class SubjectCustomGrid constructor(private val context: Context,
                                     private val subjectArray: ArrayList<Subject>) : BaseAdapter() {
     override fun getCount(): Int {
@@ -31,7 +29,6 @@ class SubjectCustomGrid constructor(private val context: Context,
         return 0
     }
 
-    //The getView method
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         //Get the inflater
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater

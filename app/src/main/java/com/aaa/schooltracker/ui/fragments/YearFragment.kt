@@ -1,34 +1,28 @@
-/**
- * Name: YearFragment.kt
- * Date: 01/11/2021
- * @author: Abdallah Alqashqish
- * The fragment that will show the different subjects of every year
- */
-
 package com.aaa.schooltracker.ui.fragments
 
-import android.database.Cursor
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.aaa.schooltracker.DatabaseHelper
 import com.aaa.schooltracker.R
 import com.aaa.schooltracker.databinding.YearFragmentBinding
-import com.aaa.schooltracker.ui.activity.MainActivity
 import com.aaa.schooltracker.ui.customgrid.SubjectCustomGrid
 import com.aaa.schooltracker.ui.dialog.AddSubjectPopup
 import com.aaa.schooltracker.util.Constants
 import com.aaa.schooltracker.util.data.Subject
 import com.aaa.schooltracker.util.data.Year
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.MobileAds
-import java.text.DecimalFormat
 
+/**
+ * The fragment that displays all subject for a specific year. Accessed by
+ * pressing a year in the years fragment
+ *
+ * @author Abdallah Alqashqish
+ * @version v3.1
+ */
 class YearFragment : Fragment() {
 
     private lateinit var db: DatabaseHelper
@@ -118,7 +112,7 @@ class YearFragment : Fragment() {
     }
 
     /**
-     * Calculates the average of all the subjects and displays them to the user
+     * @return The average the student has achieved so far throughout this year
      */
     private fun calculateTotalAverage(): Double {
         val numOfZeros: Int = subjectArray.filter { it.average == 0.0 }.count()

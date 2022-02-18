@@ -1,10 +1,3 @@
-/**
- * Name: YearsFragment.kt
- * Date: 28/10/2021
- * @author: Abdallah Alqashqish
- * The fragment that will show the different year information
- */
-
 package com.aaa.schooltracker.ui.fragments
 
 import android.os.Bundle
@@ -25,6 +18,13 @@ import com.aaa.schooltracker.util.data.Year
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
 
+/**
+ * The fragment that is accessed by pressing the home tab on the bottom navigation. Displays all
+ * the years in the database.
+ *
+ * @author Abdallah Alqashqish
+ * @version v3.1
+ */
 class YearsFragment : Fragment() {
 
     lateinit var db: DatabaseHelper

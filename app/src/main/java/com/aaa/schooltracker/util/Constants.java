@@ -1,14 +1,13 @@
-/**
-  Name: Constants.java
-  Date: 31/10/2021
-  @author: Abdallah Alqashqish
- * Contains all the constants required by the app
- */
-
 package com.aaa.schooltracker.util;
 
 import java.text.DecimalFormat;
 
+/**
+ * A class with all required constants used throughout the application
+ *
+ * @author Abdallah Alqashqish
+ * @version v1.0
+ */
 public class Constants {
 
     // Key data for YearAddPopup Dialog

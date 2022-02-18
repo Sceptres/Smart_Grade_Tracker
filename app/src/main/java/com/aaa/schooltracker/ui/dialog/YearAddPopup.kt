@@ -19,7 +19,12 @@ import com.aaa.schooltracker.DatabaseHelper
 import com.aaa.schooltracker.R
 import com.aaa.schooltracker.util.data.Year
 
-
+/**
+ * A dialog used to add a new year entry
+ *
+ * @author Abdallah Alqashqish
+ * @version v3.1
+ */
 class YearAddPopup constructor(private val db: DatabaseHelper) : AppCompatDialogFragment(), AdapterView.OnItemSelectedListener {
 
     private val years: ArrayList<Year> = ArrayList()

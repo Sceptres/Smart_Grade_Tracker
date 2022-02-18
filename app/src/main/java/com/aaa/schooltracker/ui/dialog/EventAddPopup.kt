@@ -1,10 +1,3 @@
-/**
- * Name: EventAddPopup.kt
- * Date: 2/11/2020
- * @author: Abdallah Alqashqish
- * Functionality: Controls the event add popup
- */
-
 package com.aaa.schooltracker.ui.dialog
 
 import android.app.AlertDialog
@@ -22,7 +15,12 @@ import com.aaa.schooltracker.util.data.event.EventType
 import java.util.*
 import kotlin.collections.ArrayList
 
-
+/**
+ * A dialog used to add new events
+ *
+ * @author Abdallah Alqashqish
+ * @version v3.1
+ */
 class EventAddPopup : AppCompatDialogFragment() {
 
     private var selectedDate: ArrayList<Int> = getCurrentDate()
@@ -84,9 +82,6 @@ class EventAddPopup : AppCompatDialogFragment() {
                 set(Calendar.YEAR, selectedDate[2])
             }
 
-            Log.d("Today", today.toString())
-            Log.d("Selected", selectDate.toString())
-
             when{
                 subjectEditText.text.isEmpty() -> Toast.makeText(context, "Can not have an empty field.", Toast.LENGTH_LONG).show()
 
@@ -126,9 +121,6 @@ class EventAddPopup : AppCompatDialogFragment() {
     }
 
     /**
-     * Name: datePicker
-     * Date: 11/9/2020
-     * Functionality: Gets the date of the event
      * @param dmyList: A list of the date.
      *                 0 -> Day
      *                 1 -> Month
@@ -161,9 +153,6 @@ class EventAddPopup : AppCompatDialogFragment() {
     }
 
     /**
-     * Name: isDateEquals
-     * Date: 8/11/2020
-     * Functionality: Checks if 2 dates are equal
      * @return: true -> dates are equal
      *          false -> dates are not equal
      */

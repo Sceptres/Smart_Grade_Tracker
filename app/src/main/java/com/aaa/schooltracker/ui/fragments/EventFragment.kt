@@ -15,6 +15,13 @@ import com.aaa.schooltracker.util.data.event.Event
 import java.text.SimpleDateFormat
 import java.util.*
 
+/**
+ * The fragment that is accessed by pressing the event tab on the bottom navigation.
+ * Displays all events in the database
+ *
+ * @author Abdallah Alqashqish
+ * @version v3.1
+ */
 class EventFragment : Fragment() {
 
     lateinit var db: DatabaseHelper
@@ -124,17 +131,4 @@ class EventFragment : Fragment() {
 
         refresh()
     }
-
-    /**
-     * Gets the event from the add event popup and adds it to database
-     * @param day The day
-     * @param month The month
-     * @param subjectName The subjects name
-     * @param type The type of event
-     */
-//    override fun sendEventInfo(day: String?, month: String?, subjectName: String?, type: EventType?) {
-//        db.insertEvent(Event(day, month, subjectName, type, 0))
-//        refresh()
-//    }
-
 }

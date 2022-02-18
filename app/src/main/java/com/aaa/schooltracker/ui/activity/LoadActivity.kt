@@ -1,10 +1,3 @@
-/**
- * Name: LoadActivity.kt
- * Date: 5/11/2020
- * @author: Abdallah Alqashqish
- * Functionality: Controls the loading page
- */
-
 package com.aaa.schooltracker.ui.activity
 
 import android.content.Intent
@@ -14,6 +7,12 @@ import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import com.aaa.schooltracker.R
 
+/**
+ * The loading screen activity
+ *
+ * @author Abdallah Alqashqish
+ * @version v3.1
+ */
 class LoadActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
