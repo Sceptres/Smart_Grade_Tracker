@@ -7,16 +7,13 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import com.aaa.schooltracker.util.Constants
 import com.aaa.schooltracker.DatabaseHelper
 import com.aaa.schooltracker.R
 import com.aaa.schooltracker.databinding.YearsFragmentBinding
-import com.aaa.schooltracker.ui.activity.MainActivity
 import com.aaa.schooltracker.ui.customgrid.YearCustomGrid
 import com.aaa.schooltracker.ui.dialog.YearAddPopup
+import com.aaa.schooltracker.util.Constants
 import com.aaa.schooltracker.util.data.Year
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.MobileAds
 
 /**
  * The fragment that is accessed by pressing the home tab on the bottom navigation. Displays all
