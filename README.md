@@ -1,4 +1,4 @@
-# SGT
+# Smart Grade Tracker
 
 ## Project Idea
 This project was built a couple years ago when I was in high school. The goal of this project is to 
