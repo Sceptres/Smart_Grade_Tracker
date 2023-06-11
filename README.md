@@ -1,7 +1,7 @@
 # Smart Grade Tracker
 
 ## Project Idea
-This project was built a couple years ago when I was in high school. The goal of this project is to 
+This project was built in 2018. The goal of this project is to 
 create an app that will help students in many different grades keep track of their progress throughout 
 the year, as well as keep track of upcoming assignments, tests and quizzes. The app is published on 
 the google play store and can be found here: https://play.google.com/store/apps/details?id=com.aaa.schooltracker 
